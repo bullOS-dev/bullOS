@@ -168,7 +168,7 @@ export default function CurvePredictView() {
             </div>
 
             <div className="text-xs font-sans font-bold text-terminal-black/75 mt-3 uppercase text-left w-full border-t border-terminal-black/10 pt-2 leading-relaxed">
-              Websocket triggers lock buy execution within the exact Raydium pool initialization block.
+              Websocket triggers lock buy execution within the exact Pumpswap pool initialization block.
             </div>
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function CurvePredictView() {
               })}
             </div>
             <div className="text-xs font-sans font-semibold leading-relaxed border-t border-terminal-black/20 pt-3 text-terminal-black/80">
-              Select trending Solana contract keys to inspect real-time bonding curve graduation metrics and Raydium pool launch estimation.
+              Select trending Solana contract keys to inspect real-time bonding curve graduation metrics and Pumpswap pool launch estimation.
             </div>
           </div>
 
@@ -234,7 +234,7 @@ export default function CurvePredictView() {
 
                 <div className="grid grid-cols-2 gap-4 text-xs font-sans">
                   <div className="border border-terminal-black p-3 bg-black/5">
-                    <span className="text-terminal-black/70 font-bold uppercase tracking-wider block">Raydium Pool Launch ETA</span>
+                    <span className="text-terminal-black/70 font-bold uppercase tracking-wider block">Pumpswap Pool Launch ETA</span>
                     <span className="text-terminal-black font-mono font-bold text-sm tracking-wide block mt-1">
                       {selectedToken.id === 'bos' ? `NOT LIVE YET${dots}` : formatETA(selectedToken.etaSeconds)}
                     </span>
@@ -270,7 +270,7 @@ export default function CurvePredictView() {
                     <>
                       <div>[PREDICTOR] Token {selectedToken.ticker} bonding curve progress: {selectedToken.progress}%</div>
                       <div>[PREDICTOR] Estimated graduation: {selectedToken.etaSeconds} seconds | Estimated buy volume: HIGH</div>
-                      <div>[STRATEGY] Target exit configured at Raydium pool creation block.</div>
+                      <div>[STRATEGY] Target exit configured at Pumpswap pool creation block.</div>
                     </>
                   )}
                 </div>

@@ -19,7 +19,7 @@ const logTemplates = [
   "[SENTINEL] Ansem social trigger match: 'wif is the play' | Probability score: 94%",
   "[EXECUTION] Firing Jito bundle buy order for Black Bulls target CA | Latency: 280ms",
   "[WAR_ROOM] Coordinated wallet dispersion staging complete | Destination: BULL_NODE_04",
-  "[ALERT] Ansem wallet movement: transferred 250 SOL to Raydium pool maker",
+  "[ALERT] Ansem wallet movement: transferred 250 SOL to Pumpswap pool maker",
   "[SENTINEL] Scanning X/Twitter feed for keywords: 'bull', 'ansem', 'graduation'...",
   "[EXECUTION] Custom bonding curve predict engine locked target | Progress: 98.2%",
   "[MEMPOOL] Anti-frontrun wrapper deployed successfully for Black Bulls signature",
@@ -45,7 +45,7 @@ export default function AnsemSentinelView() {
   const nlpFeed = [
     { text: "ANSEM: 'solana feels extremely fast today, buying some wif'", tokens: { action: "BUY", asset: "WIF", source: "ANSEM", volume: "AUTO" } },
     { text: "USER: 'send 5 SOL to cap.sol right now'", tokens: { action: "TRANSFER", asset: "SOL", volume: "5", recipient: "cap.sol" } },
-    { text: "PUMP_BOT: 'WIF2 token bonding curve graduated, pool active'", tokens: { action: "ROUTE_POOL", asset: "WIF2", target: "RAYDIUM" } },
+    { text: "PUMP_BOT: 'WIF2 token bonding curve graduated, pool active'", tokens: { action: "ROUTE_POOL", asset: "WIF2", target: "PUMPSWAP" } },
     { text: "ANSEM: 'what memecoin should we buy next? bonk?'", tokens: { action: "SCAN", keyword: "BONK", source: "ANSEM", probability: "89%" } }
   ];
 

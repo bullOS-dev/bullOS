@@ -13,7 +13,7 @@ export const latencyProvider: Provider = {
     
     // Simulate real-time latency diagnostics
     const avgLatency = 300 + Math.floor(Math.random() * 120); // 300ms - 420ms
-    const activeTriggers = ["$bOS", "$PEPE69", "Raydium_Pools", "pump_bonding"];
+    const activeTriggers = ["$bOS", "$PEPE69", "Pumpswap_Pools", "pump_bonding"];
     const rpcNodeSpeed = 12 + Math.floor(Math.random() * 8); // 12ms - 20ms
     
     return {

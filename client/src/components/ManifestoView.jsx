@@ -4,7 +4,7 @@ export default function ManifestoView() {
   const sections = [
     {
       title: "1. THE SOLANA LIQUIDITY TRENCH PROBLEM",
-      content: "On-chain liquidity events on Solana's pump.fun and Raydium pools occur at sub-second intervals. Traditional web interfaces and general-purpose RPC nodes induce execution delays exceeding 1,200ms. In high-volatility memetic assets, this latency represents a total loss of capture potential. Retail searches are frontrun, sandwiched, and dumped on."
+      content: "On-chain liquidity events on Solana's pump.fun and Pumpswap pools occur at sub-second intervals. Traditional web interfaces and general-purpose RPC nodes induce execution delays exceeding 1,200ms. In high-volatility memetic assets, this latency represents a total loss of capture potential. Retail searches are frontrun, sandwiched, and dumped on."
     },
     {
       title: "2. THE b[OS] SOLUTION",
@@ -20,7 +20,7 @@ export default function ManifestoView() {
     },
     {
       title: "5. GRADUATION TARGETING",
-      content: "The Bonding Curve Predictor monitors graduation telemetry in real-time. When a curve approaches 98%, bOS pre-calculates the Raydium liquidity lock block, staging buy commands to execute exactly on pool initialization block."
+      content: "The Bonding Curve Predictor monitors graduation telemetry in real-time. When a curve approaches 98%, bOS pre-calculates the Pumpswap liquidity lock block, staging buy commands to execute exactly on pool initialization block."
     }
   ];
 
