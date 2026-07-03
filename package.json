@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm --prefix client run dev",
     "server": "node packages/client-direct/server.js",
-    "build": "npm --prefix client run build",
+    "build": "npm --prefix client run build && mkdir -p dist && cp -R client/dist/* dist/",
     "lint": "oxlint",
     "preview": "npm --prefix client run preview"
   },
