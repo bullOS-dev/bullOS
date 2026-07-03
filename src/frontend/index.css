@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'PP Neue Bit';
+  src: url('/assets/fonts/ppneuebit-bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/assets/fonts/HelveticaNeue.ttc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-mono: 'PP Neue Bit', monospace;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --color-phosphor-green: #00ff00;
+  --color-terminal-black: #000000;
+}
+
+/* Custom terminal design utilities - Techy Brutalist Editorial Edition */
+.brutalist-border {
+  border: 1px solid #000000;
+}
+
+.brutalist-border-thick {
+  border: 2px solid #000000;
+}
+
+.brutalist-shadow {
+  box-shadow: none !important;
+}
+
+.brutalist-shadow-lg {
+  box-shadow: none !important;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Radar Sweep Effect (High Contrast edition) */
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep-line {
+  transform-origin: bottom right;
+  animation: radar-sweep 4s linear infinite;
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #00ff00;
+  border-left: 1px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #222222;
+}
+
+/* Selection Highlight */
+::selection {
+  background-color: #000000;
+  color: #00ff00;
+}
+
+@keyframes brutalist-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -20;
+  }
+}
+
+.brutalist-flow-line {
+  stroke-dasharray: 6 4;
+  animation: brutalist-flow 1.2s linear infinite;
+}

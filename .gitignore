@@ -1,0 +1,42 @@
+# System Logs and Diagnostics
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node Package Modules and Bundler Outputs
+node_modules
+/dist
+/dist-ssr
+/*.local
+
+# bullOS Local Runtime Databases and Vector Caches
+.bullOS/
+.bullOS
+
+# Secure Environment Configurations (Contains Secret Keys)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# OS and Editor Directories
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing Coverage and Cache files
+/coverage
+.eslintcache
+.oxlintrc.json.bak
