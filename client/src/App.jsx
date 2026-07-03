@@ -7,6 +7,7 @@ import CurvePredictView from './components/CurvePredictView';
 import PriceTicker from './components/PriceTicker';
 import TrendingTokens from './components/TrendingTokens';
 import DocsView from './components/DocsView';
+import ApiPricingView from './components/ApiPricingView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('02_AUTO_SNIPER.EXE');
@@ -165,7 +166,8 @@ export default function App() {
     { id: '02_AUTO_SNIPER.EXE', name: '02_AUTO_SNIPER.EXE', desc: 'Autonomous Sniper Monitor' },
     { id: '03_ANSEM_SENTINEL.SH', name: '03_ANSEM_SENTINEL.SH', desc: 'Social latency profiler' },
     { id: '04_SYNDICATE_WAR_ROOM.DAT', name: '04_SYNDICATE_WAR_ROOM.DAT', desc: 'Distributed Wallet Routing' },
-    { id: '05_CURVE_PREDICT.CFG', name: '05_CURVE_PREDICT.CFG', desc: 'Bonding Curve graduating config' }
+    { id: '05_CURVE_PREDICT.CFG', name: '05_CURVE_PREDICT.CFG', desc: 'Bonding Curve graduating config' },
+    { id: '07_API_PRICING.SYS', name: '07_API_PRICING.SYS', desc: 'API Key Access Tiers' }
   ];
 
   const handleCommandSubmit = (e) => {
@@ -247,6 +249,8 @@ export default function App() {
         return <SyndicateWarRoomView key={activeTab} walletAddress={walletAddress} connectWallet={connectWallet} />;
       case '05_CURVE_PREDICT.CFG':
         return <CurvePredictView key={activeTab} />;
+      case '07_API_PRICING.SYS':
+        return <ApiPricingView key={activeTab} walletAddress={walletAddress} connectWallet={connectWallet} />;
       default:
         return <AutoSniperView key={activeTab} />;
     }
@@ -367,7 +371,7 @@ export default function App() {
               System Registry
             </span>
             
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (

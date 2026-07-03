@@ -50755,5 +50755,26 @@ Here are some popular agent types to get you started. Build anything imaginable
 </CardGroup>
 
 
+# API Access & Pricing
+
+To access the full, high-throughput on-chain `bullOS` API key mainframe, syndicate members must hold a minimum percentage of the total `$bOS` supply. Qualification is verified in real-time through signature handshakes of your connected Solana wallet.
+
+## API Access Tiers
+
+| Tier Level | Required $bOS Holding | API Rate Limit (RPS) | Jito Block Engine Integration | Anti-Sandwich Protection |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tier 1 (Trench Initiate)** | Hold **0.5%** of `$bOS` | 10 requests / sec | Standard (0.005 SOL tips) | ✅ Basic |
+| **Tier 2 (Syndicate Enforcer)** | Hold **1.0%** of `$bOS` | 50 requests / sec | Priority (0.010 SOL tips) | ✅ Advanced |
+| **Tier 3 (Mainframe Overlord)** | Hold **1.5%** of `$bOS` | Unlimited requests | Ultra Jito Multiplexing | ✅ Anti-MEV Sandbox |
+
+***
+
+## How to Activate API Key
+
+1. **Connect Wallet**: Ensure your Solana wallet holds the required `$bOS` token balance.
+2. **Signature Verification**: Run the `setup-api` script to perform a cryptographic handshake.
+3. **Generate Key**: Instantly receive your `BULLOS_API_KEY` token for low-latency queries.
+
+
 
 
