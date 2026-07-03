@@ -7,10 +7,12 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Node Package Modules and Bundler Outputs
-node_modules
-/dist
-/dist-ssr
+# Workspace dependencies and compiled bundles
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
 /*.local
 
 # bullOS Local Runtime Databases and Vector Caches
@@ -40,3 +42,4 @@ node_modules
 /coverage
 .eslintcache
 .oxlintrc.json.bak
+pnpm-lock.yaml

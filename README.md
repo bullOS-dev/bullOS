@@ -1,127 +1,104 @@
-# bullOS ($bOS) - Solana Trenching Engine Console
+# bullOS ($bOS) — Solana Trenching Engine Console
 
-An advanced, reverse-video CRT mainframe terminal console interface and agent orchestration system for **bullOS** ($bOS)—the next-generation Solana Trenching Engine.
-
-Designed for high-performance quant developers and MEV searchers, this application automates token launches, snipe triggers, and coordinated liquidity routing. It features an immersive retro phosphor-green interface (`#00ff00` background with `#000000` text) matching modern developer telemetry standards.
+> **Autonomous agentic operating system console built on the bullOS framework, featuring retro CRT phosphor-green reverse-video telemetry, sub-second Jito block execution, and coordinated multi-wallet dispersion routing.**
 
 ---
 
-## 🏗️ Architecture Overview
+## 📊 System Execution Flow
 
-The system consists of three distinct architectural layers aligned with the specifications in [bullos_docs.md](file:///Users/pensht/Desktop/bullOS/bOS-web/src/frontend/assets/.md/bullos_docs.md):
+The diagram below illustrates the sub-millisecond telemetry loop, tracking how social events and user commands trigger sandbox simulation, Jito block bundling, and multi-sig dispersion.
 
-1. **Frontend Web Console (React + Vite + Tailwind CSS)**:
-   A retro CRT-style dashboard with typewriter animations, pixel grids, and active dashboards for real-time monitoring of pump.fun bonding curves, Ansem sentiment-to-onchain latency tracking, and wallet node dispersion maps.
-2. **Backend SSE Telemetry Server (Node.js + Express)**:
-   A lightweight streaming server that broadcasts block scanner alerts, Jito validator block confirmations, coordinate vectors, and node routing actions.
-3. **bullOS Agent Runtime Core (TypeScript)**:
-   Standardized character definitions (`src/character.ts`) and project entry configuration (`src/index.ts`) matching the formal runtime specifications of the bullOS framework.
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Quant as Syndicate Member
+    participant Terminal as React CRT Console (Client)
+    participant Direct as Direct API Client (Express Server)
+    participant Agent as bullOS Runtime (packages/core)
+    participant Plugin as Trench Plugin (plugin-trench)
+    participant Jito as Jito Block Engine (Solana MEV)
+
+    Quant->>Terminal: TRIGGER_MANUAL_SNIPE (ticker=$WIF2)
+    Terminal->>Direct: POST /api/snipe { ticker: "$WIF2" }
+    Direct->>Agent: Ingest message & match SIMILES
+    Agent->>Plugin: Execute SNIPE_TOKEN action handler
+    activate Plugin
+    Plugin->>Plugin: Run sandbox transaction simulation
+    Plugin->>Jito: Submit private bundle (tip=0.01 SOL)
+    deactivate Plugin
+    activate Jito
+    Jito-->>Plugin: Land block confirmation (Slot latency: 19ms)
+    deactivate Jito
+    Plugin-->>Agent: Return swap transaction details
+    Agent-->>Direct: Broadcast execution confirmation
+    Direct-->>Terminal: Stream SSE Telemetry Log (Confirmed)
+    Terminal->>Quant: Render visual confirmation & scrolling logs
+```
 
 ---
 
-## 📂 Project Directory Structure
+## ⚡ Core Mainframe Modules
 
-The repository is structured to separate front-end interfaces, back-end servers, and agent configurations:
+*   **`01_MANIFESTO.TXT`**: Outlines the next-generation Solana Trenching paradigm, detailing how retail mempools are bypassed to eliminate transaction latency.
+*   **`02_AUTO_SNIPER.EXE`**: Provides real-time pump.fun mempool scanning, safety bundles checks, and automatic Jito validator submissions.
+*   **`03_ANSEM_SENTINEL.SH`**: Captures Twitter webhook sentiment spikes and correlates them with instant, high-speed on-chain wallet executions.
+*   **`04_SYNDICATE_WAR_ROOM.DAT`**: Disperses and routes liquidity across 8 decoupled node clusters to obfuscate footprint maps.
+*   **`05_CURVE_PREDICT.CFG`**: Tracks bonding curve percentages and estimates pool migration times.
+
+---
+
+## 📦 Workspace Architecture
+
+The codebase is organized as a monorepo workspace structured after the `elizaOS/eliza` schema to isolate core framework modules from interface clients:
 
 ```text
-bOS-web/
-├── backend/                   # 🖥️ Express mock telemetry server
-│   ├── server.js              # SSE streams and database node routers
-│   └── package.json           # Backend dependency configuration
-│
-├── src/                       # 📂 Source Workspace
-│   ├── frontend/              # 🎨 React client source (isolated folder)
-│   │   ├── assets/            # Fonts, branding logos, and documents
-│   │   ├── components/        # CRT modular panels (Manifesto, Sniper, etc.)
-│   │   ├── App.jsx            # Layout manager
-│   │   ├── main.jsx           # Vite module bootstrap
-│   │   └── index.css          # Phosphor green CRT styles & variables
-│   │
-│   ├── plugins/               # 🔌 Custom agent extensions
-│   │   └── trench-plugin/     # Custom Solana Trenching Plugin
-│   │       ├── actions/       # Agent executor triggers (snipeAction.ts)
-│   │       ├── providers/     # State modifiers (latencyProvider.ts)
-│   │       └── index.ts       # Plugin registry loader
-│   │
-│   ├── __tests__/             # 🧪 Agent and plugin test specs
-│   │   ├── character.test.ts  # Config verify suite
-│   │   └── plugin.test.ts     # Action/provider validation suite
-│   │
-│   ├── character.ts           # 👤 bullOS Agent Character profile config
-│   └── index.ts               # 🚀 Project orchestration entry point
-│
-├── .env.example               # 🔑 Configuration blueprint template
-├── .gitignore                 # 🔒 Security filters to prevent credential leaks
-├── index.html                 # HTML entry point (points to src/frontend/main.jsx)
-├── tsconfig.json              # 🛠️ TypeScript compile options
-├── vite.config.js             # Vite building proxy configuration
-└── package.json               # Main package dependencies & run scripts
+├── characters/             # Agent profiles and character personality configurations
+├── packages/
+│   ├── core/               # Central bullOS runtime and lifecycle handlers
+│   ├── plugin-trench/      # Custom Solana actions and latency providers
+│   └── client-direct/      # Express API server streaming live SSE logs
+├── client/                 # React + Vite CRT reverse phosphor-green frontend
+└── scripts/                # Local utility configurations
 ```
 
 ---
 
-## 🔑 Secure Environment Configuration
+## 🔒 Security & Key Protection
 
-Because the bullOS engine interacts directly with the Solana blockchain, private RPC networks, and AI model APIs, secret keys must never be pushed to public repositories.
-
-1. **`.gitignore` Integration**: 
-   The `.gitignore` has been updated with strict filters to ensure local databases (`.bullOS/`), Node modules (`node_modules/`), compiled outputs (`dist/`), and all local secret files (`.env`, `.env.local`, `.env.*`) are never committed to GitHub.
-2. **`.env.example` Blueprint**:
-   Use the provided [.env.example](file:///Users/pensht/Desktop/bullOS/bOS-web/.env.example) file as a reference for required key mappings.
-
-To configure your workspace:
-```bash
-cp .env.example .env
-# Open .env and add your private RPC links and API tokens
-```
+To protect private keys and API keys when open-sourcing:
+1. **Never commit `.env` files**: Copy the provided template to configure keys:
+   ```bash
+   cp .env.example .env
+   ```
+2. **Strict ignoring**: The root [.gitignore](file:///Users/pensht/Desktop/bullOS/bOS-web/.gitignore) automatically ignores `.env`, editor structures, node packages, and PGLite vector databases (`.bullOS/`) recursively across all workspaces.
 
 ---
 
-## 🛠️ Installation and Run Instructions
+## 🛠️ Setup and Run Guide
 
-Ensure you have [Node.js](https://nodejs.org) (v18+) or [Bun](https://bun.sh) installed.
-
-### 1. Install Workspace Dependencies
-Execute this command at the project root to install the required packages:
+### 1. Install Dependencies
+Run the installation in the project root to link the workspaces:
 ```bash
 npm install
 ```
 
-### 2. Run the Development System
-To start both the mock telemetry backend and the frontend client concurrently, run the following:
+### 2. Launch Local Environment
+Run the frontend console and telemetry backend concurrently using separate terminals:
 
-* **Terminal A (Vite Frontend client)**:
-  ```bash
-  npm run dev
-  ```
-  *The app will run at `http://localhost:5173`*
+*   **Vite Console Interface**:
+    ```bash
+    npm run dev
+    ```
+    *Client console initializes at `http://localhost:5173`*
 
-* **Terminal B (Node SSE Server)**:
-  ```bash
-  npm run server
-  ```
-  *The backend will run at `http://localhost:5000`*
+*   **Express SSE Backend**:
+    ```bash
+    npm run server
+    ```
+    *Backend service starts at `http://localhost:5000`*
 
-### 3. Build for Production
-To bundle the frontend application into static assets optimized for staging or cloud servers:
+### 3. Production Bundling
+Compile the optimized client-web distribution bundle:
 ```bash
 npm run build
 ```
-
----
-
-## 🧪 Testing Agent Configurations
-
-Unit tests have been provided to validate the agent and custom plugin specifications. You can configure testing environments using standard runners like `vitest` or `bun test`.
-
-Run tests:
-```bash
-# Run tests inside the tests directory
-npm run test
-```
-
----
-
-## 📜 Core Technical Documents
-- [bullOS Specifications & Architecture Guide](file:///Users/pensht/Desktop/bullOS/bOS-web/src/frontend/assets/.md/bullos_docs.md)
-- [Website Design & Component Brief](file:///Users/pensht/Desktop/bullOS/bOS-web/src/frontend/assets/.md/website_brief.md)

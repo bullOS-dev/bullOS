@@ -1,4 +1,4 @@
-import { character } from '../character';
+import character from '../../../../characters/bullOS.character.json';
 
 /**
  * Character configuration assertions.
@@ -22,7 +22,7 @@ describe('bullOS Character Configuration Tests', () => {
   });
 
   it('should load conditional plugins and secure settings', () => {
-    expect(character.plugins).toContain('./plugins/trench-plugin');
+    expect(character.plugins).toContain('@usebullOS/plugin-trench');
     expect(character.settings).toBeDefined();
     expect(character.settings.jitoTipSol).toBe(0.01);
   });
@@ -32,7 +32,7 @@ describe('bullOS Character Configuration Tests', () => {
     character.messageExamples.forEach(dialog => {
       expect(Array.isArray(dialog)).toBe(true);
       dialog.forEach(msg => {
-        expect(msg.name).toBeDefined();
+        expect(msg.user).toBeDefined();
         expect(msg.content.text).toBeDefined();
       });
     });

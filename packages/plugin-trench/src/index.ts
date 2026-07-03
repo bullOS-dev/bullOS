@@ -1,4 +1,4 @@
-import { Plugin } from '../../index'; // Relative imports for typings
+import { Plugin } from '../../core/src/index'; // Relative imports for typings
 import { snipeAction } from './actions/snipeAction';
 import { latencyProvider } from './providers/latencyProvider';
 

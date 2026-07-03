@@ -1,4 +1,4 @@
-import { character } from './character';
+import character from '../../../../characters/bullOS.character.json';
 
 // Define core interfaces based on bullOS specification in bullos_docs.md
 export interface IAgentRuntime {
@@ -11,7 +11,7 @@ export interface IAgentRuntime {
 }
 
 export interface ProjectAgent {
-  character: typeof character;
+  character: any;
   init: (runtime: IAgentRuntime) => Promise<void>;
   plugins?: any[];
 }
@@ -25,7 +25,7 @@ export interface Project {
  * Configures the project agents and registers lifecycle hooks.
  */
 export const projectAgent: ProjectAgent = {
-  character,
+  character: character as any,
   init: async (runtime: IAgentRuntime) => {
     console.log(`[bOS-CORE] Initializing runtime for Agent: ${character.name}`);
     console.log(`[bOS-CORE] Identity UUID: ${character.id}`);

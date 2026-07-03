@@ -1,4 +1,4 @@
-import { Provider, IAgentRuntime, Memory, State } from '../../../index'; // Relative imports for typings
+import { Provider, IAgentRuntime, Memory, State } from '../../../core/src/index'; // Relative imports for typings
 
 /**
  * Provider: LATENCY_TRACKER

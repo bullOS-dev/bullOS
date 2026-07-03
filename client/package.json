@@ -1,14 +1,12 @@
 {
-  "name": "bos-web",
+  "name": "@bullOS/client-web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm --prefix client run dev",
-    "server": "node packages/client-direct/server.js",
-    "build": "npm --prefix client run build",
-    "lint": "oxlint",
-    "preview": "npm --prefix client run preview"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.7",
@@ -19,7 +17,6 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
-    "oxlint": "^1.71.0",
     "tailwindcss": "^4.3.2",
     "vite": "^8.1.1"
   }

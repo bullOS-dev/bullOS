@@ -1,6 +1,6 @@
-import { trenchPlugin } from '../plugins/trench-plugin';
-import { snipeAction } from '../plugins/trench-plugin/actions/snipeAction';
-import { latencyProvider } from '../plugins/trench-plugin/providers/latencyProvider';
+import { trenchPlugin } from '../../../plugin-trench/src/index';
+import { snipeAction } from '../../../plugin-trench/src/actions/snipeAction';
+import { latencyProvider } from '../../../plugin-trench/src/providers/latencyProvider';
 
 /**
  * TrenchPlugin components and validation assertions.

@@ -1,4 +1,4 @@
-import { Action, IAgentRuntime, Memory, State } from '../../../index'; // Relative imports for typings
+import { Action, IAgentRuntime, Memory, State } from '../../../core/src/index'; // Relative imports for typings
 
 /**
  * Action: SNIPE_TOKEN

@@ -1,0 +1,16 @@
+{
+  "name": "@bullOS/plugin-trench",
+  "version": "1.0.0",
+  "description": "High-performance Solana Trenching and MEV Sniping integration plugin",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@bullOS/core": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
