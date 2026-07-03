@@ -3,14 +3,14 @@ import React, { useState, useEffect } from 'react';
 const defaultNodesData = {
   simulating: false,
   nodes: [
-    { id: 1, name: "BULL_NODE_01", status: "ACTIVE", balance: "142.50 SOL", txCount: 154, ip: "102.15.22.101", target: "STAGED" },
-    { id: 2, name: "BULL_NODE_02", status: "ACTIVE", balance: "89.15 SOL", txCount: 92, ip: "102.15.22.102", target: "EXECUTED" },
-    { id: 3, name: "BULL_NODE_03", status: "ACTIVE", balance: "210.40 SOL", txCount: 201, ip: "102.15.22.103", target: "STAGED" },
-    { id: 4, name: "BULL_NODE_04", status: "ACTIVE", balance: "55.80 SOL", txCount: 64, ip: "102.15.22.104", target: "IDLE" },
-    { id: 5, name: "BULL_NODE_05", status: "ACTIVE", balance: "178.90 SOL", txCount: 133, ip: "102.15.22.105", target: "EXECUTED" },
-    { id: 6, name: "BULL_NODE_06", status: "ACTIVE", balance: "94.65 SOL", txCount: 88, ip: "102.15.22.106", target: "STAGED" },
-    { id: 7, name: "BULL_NODE_07", status: "ACTIVE", balance: "120.30 SOL", txCount: 110, ip: "102.15.22.107", target: "IDLE" },
-    { id: 8, name: "BULL_NODE_08", status: "ACTIVE", balance: "312.75 SOL", txCount: 290, ip: "102.15.22.108", target: "EXECUTED" }
+    { id: 1, name: "BULL_NODE_01", status: "ACTIVE", balance: "1.4250 SOL", txCount: 154, ip: "82.220.101.42", target: "STAGED" },
+    { id: 2, name: "BULL_NODE_02", status: "ACTIVE", balance: "0.8915 SOL", txCount: 92, ip: "178.197.45.10", target: "EXECUTED" },
+    { id: 3, name: "BULL_NODE_03", status: "ACTIVE", balance: "2.1040 SOL", txCount: 201, ip: "193.134.12.98", target: "STAGED" },
+    { id: 4, name: "BULL_NODE_04", status: "ACTIVE", balance: "0.5580 SOL", txCount: 64, ip: "188.60.254.103", target: "IDLE" },
+    { id: 5, name: "BULL_NODE_05", status: "ACTIVE", balance: "1.7890 SOL", txCount: 133, ip: "46.126.89.201", target: "EXECUTED" },
+    { id: 6, name: "BULL_NODE_06", status: "ACTIVE", balance: "0.9465 SOL", txCount: 88, ip: "109.202.15.66", target: "STAGED" },
+    { id: 7, name: "BULL_NODE_07", status: "ACTIVE", balance: "1.2030 SOL", txCount: 110, ip: "82.220.14.88", target: "IDLE" },
+    { id: 8, name: "BULL_NODE_08", status: "ACTIVE", balance: "3.1275 SOL", txCount: 290, ip: "178.197.202.13", target: "EXECUTED" }
   ]
 };
 
@@ -19,6 +19,14 @@ export default function SyndicateWarRoomView({ walletAddress, connectWallet }) {
   const [data, setData] = useState(defaultNodesData);
   const [loading, setLoading] = useState(false);
   const [simulating, setSimulating] = useState(false);
+  const [dispersionBalance, setDispersionBalance] = useState(11.11);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDispersionBalance(prev => prev + (Math.random() * 0.0004 + 0.0001));
+    }, 1500);
+    return () => clearInterval(timer);
+  }, []);
 
   const fetchNodes = async () => {
     try {
@@ -53,12 +61,13 @@ export default function SyndicateWarRoomView({ walletAddress, connectWallet }) {
     } catch (err) {
       console.warn("Dispersion trigger offline. Executing client-side routing flow.", err);
       // Run local simulated routing steps for visual validation
+      setDispersionBalance(prev => Math.max(1.0, prev - 0.8));
       setData(prev => ({
         ...prev,
         nodes: prev.nodes.map(n => ({
           ...n,
           status: "ROUTING",
-          balance: (parseFloat(n.balance.split(' ')[0]) - 5).toFixed(2) + " SOL"
+          balance: (parseFloat(n.balance.split(' ')[0]) - 0.05).toFixed(4) + " SOL"
         }))
       }));
 
@@ -67,12 +76,12 @@ export default function SyndicateWarRoomView({ walletAddress, connectWallet }) {
           simulating: false,
           nodes: prev.nodes.map(n => {
             let finalState = n.target;
-            let balanceAdded = finalState === "EXECUTED" ? 15.00 : 5.00;
+            let balanceAdded = finalState === "EXECUTED" ? 0.15 : 0.05;
             if (finalState === "IDLE") balanceAdded = 0.00;
             return {
               ...n,
               status: finalState,
-              balance: (parseFloat(n.balance.split(' ')[0]) + balanceAdded).toFixed(2) + " SOL",
+              balance: (parseFloat(n.balance.split(' ')[0]) + balanceAdded).toFixed(4) + " SOL",
               txCount: n.txCount + 1
             };
           })
@@ -156,7 +165,7 @@ export default function SyndicateWarRoomView({ walletAddress, connectWallet }) {
       <div className="border-b border-terminal-black/30 pb-3 flex justify-between items-start md:items-center flex-col md:flex-row gap-2">
         <div>
           <h2 className="font-mono text-3xl font-bold uppercase tracking-wide">
-            [ 04 // DISTRIBUTED SYNDICATE WAR ROOM ]
+            [ 03 // DISTRIBUTED SYNDICATE WAR ROOM ]
           </h2>
           <span className="text-sm font-bold uppercase mt-1 text-terminal-black/60 block">
             MODULE TARGET: DECENTRALIZED MULTI-SIG ROUTING NODES
@@ -257,12 +266,12 @@ export default function SyndicateWarRoomView({ walletAddress, connectWallet }) {
           <div className="lg:col-span-8 flex flex-col gap-4">
             <div className="p-4 bg-phosphor-green/10">
               <div className="border-b border-terminal-black/20 pb-2 flex justify-between items-center">
-                <span className="font-mono text-xl font-bold">[ 04_SYNDICATE_WAR_ROOM.DAT ]</span>
+                <span className="font-mono text-xl font-bold">[ 03_SYNDICATE_WAR_ROOM.DAT ]</span>
                 <span className="text-xs font-sans font-bold uppercase tracking-wider text-terminal-black/75">MULTISIG DISPERSION MATRIX</span>
               </div>
 
               {/* 3x3 layout representation */}
-              <div className="grid grid-cols-3 gap-4 relative p-3 border border-terminal-black bg-black/5 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 relative p-3 border border-terminal-black bg-black/5 mt-4">
                 {renderNodeCell(1)}
                 {renderNodeCell(2)}
                 {renderNodeCell(3)}
@@ -273,7 +282,7 @@ export default function SyndicateWarRoomView({ walletAddress, connectWallet }) {
                 <div className="border-2 border-terminal-black bg-terminal-black text-phosphor-green p-3 flex flex-col justify-center items-center text-center min-h-[110px] relative">
                   <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-white/70 block mb-0.5">DISPERSION POOL</span>
                   <span className="text-2xl font-mono font-bold tracking-wider uppercase">
-                    {simulating ? "ROUTING..." : "982.50 SOL"}
+                    {simulating ? "ROUTING..." : `${dispersionBalance.toFixed(4)} SOL`}
                   </span>
                   <span className="text-xs font-mono mt-1 opacity-70">TARGET: MULTI-SIG</span>
 

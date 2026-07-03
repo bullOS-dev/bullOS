@@ -93,7 +93,7 @@ export default function CurvePredictView() {
       <div className="border-b border-terminal-black/30 pb-3 flex justify-between items-start md:items-center flex-col md:flex-row gap-2">
         <div>
           <h2 className="font-mono text-3xl font-bold uppercase tracking-wide">
-            [ 05 // BONDING CURVE PREDICTOR ]
+            [ 04 // BONDING CURVE PREDICTOR ]
           </h2>
           <span className="text-sm font-bold uppercase mt-1 text-terminal-black/60 block">
             MODULE TARGET: REAL-TIME TELEMETRY STREAMING & GRADUATION PREDICTION
@@ -207,7 +207,7 @@ export default function CurvePredictView() {
           {/* Main Graph / Telemetry Panel */}
           <div className="lg:col-span-8 flex flex-col gap-4 justify-between min-h-[350px]">
             <div className="border-b border-terminal-black pb-2 flex justify-between items-center">
-              <span className="font-mono text-xl font-bold">[ 05_CURVE_PREDICT.CFG ]</span>
+              <span className="font-mono text-xl font-bold">[ 04_CURVE_PREDICT.CFG ]</span>
               <span className="text-xs font-mono font-bold bg-terminal-black text-phosphor-green px-2.5 py-0.5 border border-terminal-black uppercase">REAL-TIME</span>
             </div>
 

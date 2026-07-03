@@ -10,7 +10,7 @@ import DocsView from './components/DocsView';
 import ApiPricingView from './components/ApiPricingView';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('02_AUTO_SNIPER.EXE');
+  const [activeTab, setActiveTab] = useState('01_AUTO_SNIPER.EXE');
   const [isDocsView, setIsDocsView] = useState(false);
 
   useEffect(() => {
@@ -163,11 +163,11 @@ export default function App() {
   }, [cmdHistory]);
 
   const tabs = [
-    { id: '02_AUTO_SNIPER.EXE', name: '02_AUTO_SNIPER.EXE', desc: 'Autonomous Sniper Monitor' },
-    { id: '03_ANSEM_SENTINEL.SH', name: '03_ANSEM_SENTINEL.SH', desc: 'Social latency profiler' },
-    { id: '04_SYNDICATE_WAR_ROOM.DAT', name: '04_SYNDICATE_WAR_ROOM.DAT', desc: 'Distributed Wallet Routing' },
-    { id: '05_CURVE_PREDICT.CFG', name: '05_CURVE_PREDICT.CFG', desc: 'Bonding Curve graduating config' },
-    { id: '07_API_PRICING.SYS', name: '07_API_PRICING.SYS', desc: 'API Key Access Tiers' }
+    { id: '01_AUTO_SNIPER.EXE', name: '01_AUTO_SNIPER.EXE', desc: 'Autonomous Sniper Monitor' },
+    { id: '02_ANSEM_SENTINEL.SH', name: '02_ANSEM_SENTINEL.SH', desc: 'Social latency profiler' },
+    { id: '03_SYNDICATE_WAR_ROOM.DAT', name: '03_SYNDICATE_WAR_ROOM.DAT', desc: 'Distributed Wallet Routing' },
+    { id: '04_CURVE_PREDICT.CFG', name: '04_CURVE_PREDICT.CFG', desc: 'Bonding Curve graduating config' },
+    { id: '05_API_PRICING.SYS', name: '05_API_PRICING.SYS', desc: 'API Key Access Tiers' }
   ];
 
   const handleCommandSubmit = (e) => {
@@ -197,10 +197,11 @@ export default function App() {
         newHistory.push({
           text: `Available Commands:
   help      - Display this command dictionary
-  snip      - Mount Auto Sniper console [02_AUTO_SNIPER.EXE]
-  sentinel  - Mount Social Latency Profiler [03_ANSEM_SENTINEL.SH]
-  warroom   - Mount Syndicate Liquidity Grid [04_SYNDICATE_WAR_ROOM.DAT]
-  curve     - Mount Bonding Curve Predictor [05_CURVE_PREDICT.CFG]
+  snip      - Mount Auto Sniper console [01_AUTO_SNIPER.EXE]
+  sentinel  - Mount Social Latency Profiler [02_ANSEM_SENTINEL.SH]
+  warroom   - Mount Syndicate Liquidity Grid [03_SYNDICATE_WAR_ROOM.DAT]
+  curve     - Mount Bonding Curve Predictor [04_CURVE_PREDICT.CFG]
+  pricing   - Mount API Key Access Tiers [05_API_PRICING.SYS]
   manifesto - Print notice on core paradigm manifesto placement
   install   - View instructions on how to install modules
   clear     - Wipe out command logs history`,
@@ -208,20 +209,24 @@ export default function App() {
         });
         break;
       case 'snip':
-        setActiveTab('02_AUTO_SNIPER.EXE');
-        newHistory.push({ text: 'Switching view target to: 02_AUTO_SNIPER.EXE', type: 'output' });
+        setActiveTab('01_AUTO_SNIPER.EXE');
+        newHistory.push({ text: 'Switching view target to: 01_AUTO_SNIPER.EXE', type: 'output' });
         break;
       case 'sentinel':
-        setActiveTab('03_ANSEM_SENTINEL.SH');
-        newHistory.push({ text: 'Switching view target to: 03_ANSEM_SENTINEL.SH', type: 'output' });
+        setActiveTab('02_ANSEM_SENTINEL.SH');
+        newHistory.push({ text: 'Switching view target to: 02_ANSEM_SENTINEL.SH', type: 'output' });
         break;
       case 'warroom':
-        setActiveTab('04_SYNDICATE_WAR_ROOM.DAT');
-        newHistory.push({ text: 'Switching view target to: 04_SYNDICATE_WAR_ROOM.DAT', type: 'output' });
+        setActiveTab('03_SYNDICATE_WAR_ROOM.DAT');
+        newHistory.push({ text: 'Switching view target to: 03_SYNDICATE_WAR_ROOM.DAT', type: 'output' });
         break;
       case 'curve':
-        setActiveTab('05_CURVE_PREDICT.CFG');
-        newHistory.push({ text: 'Switching view target to: 05_CURVE_PREDICT.CFG', type: 'output' });
+        setActiveTab('04_CURVE_PREDICT.CFG');
+        newHistory.push({ text: 'Switching view target to: 04_CURVE_PREDICT.CFG', type: 'output' });
+        break;
+      case 'pricing':
+        setActiveTab('05_API_PRICING.SYS');
+        newHistory.push({ text: 'Switching view target to: 05_API_PRICING.SYS', type: 'output' });
         break;
       case 'manifesto':
         newHistory.push({ text: 'b[OS] CORE PARADIGM MANIFESTO is rendered as fixed text at the top of the mainframe dashboard.', type: 'system' });
@@ -241,15 +246,15 @@ export default function App() {
 
   const renderMainView = () => {
     switch (activeTab) {
-      case '02_AUTO_SNIPER.EXE':
+      case '01_AUTO_SNIPER.EXE':
         return <AutoSniperView key={activeTab} walletAddress={walletAddress} connectWallet={connectWallet} />;
-      case '03_ANSEM_SENTINEL.SH':
+      case '02_ANSEM_SENTINEL.SH':
         return <AnsemSentinelView key={activeTab} />;
-      case '04_SYNDICATE_WAR_ROOM.DAT':
+      case '03_SYNDICATE_WAR_ROOM.DAT':
         return <SyndicateWarRoomView key={activeTab} walletAddress={walletAddress} connectWallet={connectWallet} />;
-      case '05_CURVE_PREDICT.CFG':
+      case '04_CURVE_PREDICT.CFG':
         return <CurvePredictView key={activeTab} />;
-      case '07_API_PRICING.SYS':
+      case '05_API_PRICING.SYS':
         return <ApiPricingView key={activeTab} walletAddress={walletAddress} connectWallet={connectWallet} />;
       default:
         return <AutoSniperView key={activeTab} />;
@@ -271,7 +276,7 @@ export default function App() {
           <div className="flex flex-col items-start select-text w-full lg:w-auto">
             <div className="flex items-center justify-between w-full lg:w-auto gap-4">
               <span className="font-mono text-6xl md:text-[76px] font-bold leading-none text-phosphor-green tracking-tighter">
-                b[OS]
+                b[OS]<span className="cursor-blink">_</span>
               </span>
               <div className="flex items-center gap-2 lg:hidden">
                 <div className="w-2 h-2 rounded-full bg-red-600 animate-ping"></div>

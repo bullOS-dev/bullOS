@@ -143,7 +143,7 @@ export default function AutoSniperView({ walletAddress, connectWallet }) {
       <div className="border-b border-terminal-black/30 pb-3 flex justify-between items-start md:items-center flex-col md:flex-row gap-2">
         <div>
           <h2 className="font-mono text-3xl font-bold uppercase tracking-wide">
-            [ 02 // AUTONOMOUS TRENCH SNIPER ]
+            [ 01 // AUTONOMOUS TRENCH SNIPER ]
           </h2>
           <span className="text-sm font-bold uppercase mt-1 text-terminal-black/60 block">
             MODULE TARGET: AUTONOMOUS ON-CHAIN TRENCHING EXECUTION

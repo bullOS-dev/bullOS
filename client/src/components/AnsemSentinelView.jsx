@@ -122,7 +122,7 @@ export default function AnsemSentinelView() {
       <div className="border-b border-terminal-black/30 pb-3 flex justify-between items-start md:items-center flex-col md:flex-row gap-2">
         <div>
           <h2 className="font-mono text-3xl font-bold uppercase tracking-wide">
-            [ 03 // ANSEM SENTINEL TELEMETRY ]
+            [ 02 // ANSEM SENTINEL TELEMETRY ]
           </h2>
           <span className="text-sm font-bold uppercase mt-1 text-terminal-black/60 block">
             MODULE TARGET: SOCIAL TELEMETRY SCANNERS & NLP INTENT EXTRACTION
