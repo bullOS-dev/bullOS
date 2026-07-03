@@ -264,16 +264,21 @@ export default function App() {
         
         <header className="brutalist-border-thick bg-terminal-black text-phosphor-green py-4 px-4 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 brutalist-shadow">
           {/* Logo b[OS] */}
-          <div className="flex items-center justify-between w-full lg:w-auto select-text">
-            <span className="font-mono text-6xl md:text-[76px] font-bold leading-none text-phosphor-green tracking-tighter">
-              b[OS]
-            </span>
-            <div className="flex items-center gap-2 lg:hidden">
-              <div className="w-2 h-2 rounded-full bg-red-600 animate-ping"></div>
-              <span className="font-mono text-[9px] font-bold bg-[#00ff00] text-black px-1.5 py-0.5 border border-[#00ff00] uppercase tracking-widest">
-                LIVE
+          <div className="flex flex-col items-start select-text w-full lg:w-auto">
+            <div className="flex items-center justify-between w-full lg:w-auto gap-4">
+              <span className="font-mono text-6xl md:text-[76px] font-bold leading-none text-phosphor-green tracking-tighter">
+                b[OS]
               </span>
+              <div className="flex items-center gap-2 lg:hidden">
+                <div className="w-2 h-2 rounded-full bg-red-600 animate-ping"></div>
+                <span className="font-mono text-[9px] font-bold bg-[#00ff00] text-black px-1.5 py-0.5 border border-[#00ff00] uppercase tracking-widest">
+                  LIVE
+                </span>
+              </div>
             </div>
+            <span className="font-sans text-[10px] md:text-xs text-phosphor-green/75 tracking-wide mt-1 font-semibold">
+              Advanced LLM trenching. Pure bull power.
+            </span>
           </div>
           
           {/* Combined Action & Wallet Grid split into separate blocks */}
